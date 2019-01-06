@@ -1,0 +1,303 @@
+<!--Developed by Arvin Poddar-->
+<html lang="en">
+  <head>
+    <title>CourseOff Plus</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/github-markdown.css" />
+    <script src="js/js.cookie.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body onload="renderList();renderColor();">
+    <div class="container">
+      <div class="web">
+        <!--Embeds the courseoff website inside-->
+        <object
+          class="embed"
+          type="text/html"
+          data="https://gatech.courseoff.com/workspace"
+        >
+        </object>
+      </div>
+      <div class="notes">
+        <div class="top">
+          <h3>Classes:</h3>
+          <div id="classList">
+            <p id="empty" style="text-align: center;">
+              You have no classes added.
+            </p>
+          </div>
+          <div class="buttonWrap">
+            <button class="btn-primary" onclick="addClass()">Add Class</button>
+            <button class="btn-primary danger" onclick="removeClass()">
+              Delete Empty
+            </button>
+          </div>
+          <hr />
+          <h3 style="margin-top: 5px;">Additional Notes:</h3>
+          <textarea
+            id="notes"
+            placeholder="Write additional notes here"
+          ></textarea>
+          <div style="text-align: center;">
+            <button
+              class="btn-primary"
+              onclick="saveAll()"
+              style="margin-right: 0;"
+            >
+              Save All
+            </button>
+            <button
+              class="btn-primary"
+              style="margin-right: 0;"
+              data-toggle="modal"
+              data-target="#info"
+            >
+              Help
+            </button>
+          </div>
+        </div>
+        <!--<div class="footer"><h5>CourseOff Plus - by Arvin Poddar</h5></div>-->
+      </div>
+    </div>
+    <!--This is the hidden template for all classes-->
+    <div id="reference" style="display: none;">
+      <div style="flex: 3.5">
+        <input
+          type="text"
+          placeholder="Class Name"
+          maxlength="11"
+          name="className"
+          ondblclick="addBelow()"
+        />
+      </div>
+      <div style="flex: 2">
+        <input
+          type="text"
+          placeholder="Section"
+          maxlength="3"
+          name="section"
+          ondblclick="addBelow()"
+        />
+      </div>
+      <div style="flex: 2.5">
+        <input
+          type="number"
+          placeholder="CRN#"
+          min="0"
+          max="999999"
+          name="CRN"
+          ondblclick="addBelow()"
+        />
+      </div>
+      <div style="flex: 4">
+        <select onchange="recolor(this);">
+          <option disabled selected>-Status-</option>
+          <option value="Add">Add</option>
+          <option value="Drop">Drop</option>
+          <option value="Still Needed">Still Needed</option>
+          <option value="Waitlisted">Waitlisted</option>
+          <option value="Reference">Reference</option>
+        </select>
+      </div>
+    </div>
+
+    <div
+      class="modal fade "
+      id="info"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="important-msg-label"
+      aria-hidden="true"
+    >
+      <!--This is the beginning of the Help modal-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              style="margin-top: 5px;"
+            >
+              <span aria-hidden="true">&times;</span
+              ><span class="sr-only">Close</span>
+            </button>
+            <h1 class="modal-title" id="important-msg-label">CourseOff Plus</h1>
+          </div>
+          <div class="modal-body">
+            <p>Developed by Arvin Poddar. Credits at bottom.</p>
+            <hr />
+            <h2>About</h2>
+            <p>
+              CourseOff Plus makes registration easier than ever by adding
+              features to the CourseOff scheduling webapp. With CourseOff Plus,
+              students can keep track of class changes that need to be made,
+              without having to repeatedly search for CRNs or sections.
+              CourseOff Plus also provides a notes section to keep reminders on
+              things that need to be changed, or particular steps to be taken
+              during registration.<br /><br />
+              <em
+                >Best of all, you don't need an account to use CourseOff Plus.
+                All data is saved in browser cookies. When you clear your
+                browser cookies, all CourseOff Plus data will be cleared.</em
+              ><br /><br />
+              <strong><a href="">CourseOff Plus is open source.</a></strong>
+            </p>
+            <hr />
+            <h2>About Classes</h2>
+            <p>Classes have 4 bits of information:</p>
+            <ul>
+              <li>
+                <strong>Class Name: </strong>Class names include the subject
+                name and the class number. For example, Physics 2 is written as
+                PHYS 2212.
+              </li>
+              <li>
+                <strong>Section: </strong>The section is used to identify a
+                class with a particular teacher or recitation. Typically, it is
+                a short code such as "A25" or "P"
+              </li>
+              <li>
+                <strong>CRN#: </strong>The CRN, or course number, is the unique
+                number used to identify a class. There are the numbers used
+                during registration. You can find the CRN for a course by
+                hovering over that class in CourseOff (the CRN is labelled under
+                the "Ref. Number"), or by looking up the course in your school's
+                registration site.
+              </li>
+              <li>
+                <strong>Status: </strong>The status describes what action you
+                have to take with the class. Read more below.
+              </li>
+            </ul>
+            <hr />
+            <h2>Adding a Class</h2>
+            <p>There are two ways to add a class in CourseOff Plus:</p>
+            <ul>
+              <li>
+                <strong>Adding to the Bottom of the List: </strong>To add a
+                class to the bottom of the class list, simply click the "Add
+                Class" button.
+              </li>
+              <li>
+                <strong>Adding below another Class: </strong>Double click on a
+                class's name, section, or CRN to insert a new class directly
+                underneath.
+              </li>
+            </ul>
+
+            <hr />
+            <h2>Deleting a Class</h2>
+            <p>
+              You can delete multiple classes at once. Simply delete the text
+              inside the "Class Name" box for every class you want to delete.
+              Then, click the "Delete Empty" button. Classes without names are
+              considered empty.
+            </p>
+            <hr />
+            <h2>Status</h2>
+            <p>
+              A class status indicates what needs to be done with a class,
+              whether it's in CourseOff or not. They can be chosen from the drop
+              down. Class statuses are also color coded. Each status has a
+              unique meaning:
+            </p>
+            <ul>
+              <li>
+                <strong>Add: </strong>This describes a class that may need to be
+                added in the future.
+              </li>
+              <li>
+                <strong>Drop: </strong>"Drop" describes a class that may need to
+                be dropped in the future, whether it's unecessary, conflicting
+                with something else, or any other reason.
+              </li>
+              <li>
+                <strong>Still Needed: </strong>This is for a class that must be
+                added to the schedule, but currently cannot be included. This
+                could be because of timing conflicts or temporary major
+                restrictions.
+              </li>
+              <li>
+                <strong>Waitlisted: </strong>"Waitlisted" is to describe classes
+                that may be on your CourseOff schedule, but are waitlisted in
+                your actual schedule. This helps you remember that you are not
+                currently receiving these credits.
+              </li>
+              <li>
+                <strong>Reference: </strong>"Reference" is helpful for classes
+                you've temporarily removed from your schedule, but may need
+                again. By saving a class as "Reference," you don't have to
+                search for the section number or CRN again.
+              </li>
+            </ul>
+            <hr />
+            <h2>Adding Notes</h2>
+            <p>
+              Use the additional notes textbox to write any tips, references, or
+              other information you might need related to your schedule.
+            </p>
+            <hr />
+            <h2>Saving Changes</h2>
+            <p>
+              To save changes made to your classes or your notes, simply click
+              the "Save All" changes when you're done.
+            </p>
+            <hr />
+            <h2>Changing Schools</h2>
+            <p>
+              Currently, CourseOff Plus is only live for Georgia Tech students.
+              However, the school can be changed by downloading this repository
+              from <a href="" target="_blank">Github</a>, and putting the entire
+              folder in a local server environment. Then, change the URL of the
+              object tag on line 20 of this file to the CourseOff workspace URL
+              for your school. Run the website inside your localhost and you're
+              done!
+            </p>
+            <hr />
+            <h2>Credits</h2>
+            <p>CourseOff Plus uses the following content and libraries:</p>
+            <ul>
+              <li>
+                <a href="https://courseoff.com/" target="_blank">CourseOff</a> -
+                The live CourseOff website is unaltered and embedded on the left
+                side of the screen for your convenience
+              </li>
+              <li>
+                <a
+                  href="https://github.com/sindresorhus/github-markdown-css"
+                  target="_blank"
+                  >Github CSS Styling by sindresorhus</a
+                >
+                - Used to style minor components
+              </li>
+              <li>
+                <a href="https://github.com/js-cookie/js-cookie" target="_blank"
+                  >JS-Cookie</a
+                >
+                - Used to store user data without login system
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/" target="_blank"
+                  >Bootstrap</a
+                >
+                - Used to create "Help" modal.
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-primary" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+    <!--This script runs every main function-->
+  </body>
+</html>

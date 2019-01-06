@@ -1,0 +1,307 @@
+@charset "UTF-8";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  min-width: 1300px;
+  overflow-x: scroll;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+input,
+select,
+textarea,
+button,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@font-face {
+  font-family: Proxima;
+  src: url("proxima.otf");
+}
+
+.container {
+  display: flex;
+}
+
+hr {
+  margin: 8px auto 3px auto;
+}
+
+.btn-primary {
+  background-color: #20bdff;
+  width: auto;
+  cursor: pointer;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: 0px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 3px;
+  color: white;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+  transition: 0.5s;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.btn-primary:hover {
+  background-color: #007cfe;
+}
+
+.danger {
+  float: right;
+  background-color: #ea384d;
+}
+
+.danger:hover {
+  background-color: #dd2476;
+}
+
+/* use formula x = -y/(y-1), where x = flex of .web and y = desired percentage width of .web */
+.web {
+  /*min-width: 739px;*/
+  flex: 2.3333;
+  border-right: 1px solid #444;
+  min-width: 949px;
+  overflow-x: auto;
+}
+
+.notes {
+  flex: 1;
+  padding: 10px;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.embed {
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+input[type="text"],
+input[type="number"] {
+  height: 25px;
+  width: 98%;
+  font-size: 15px;
+  line-height: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  text-transform: uppercase;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  text-transform: none;
+}
+
+select {
+  height: 25px;
+  width: 98%;
+  font-size: 14px;
+  line-height: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  width: 100%;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 3px;
+  min-height: 30px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+.class {
+  display: flex;
+  padding: 3px;
+}
+
+.buttonWrap {
+  display: flex;
+  margin: 2px auto;
+  justify-content: center;
+}
+
+.class div {
+  text-align: center;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+@media (max-width: 949px) {
+  html,
+  body {
+    min-width: 0px;
+  }
+  .container {
+    display: block;
+  }
+  .web,
+  .notes {
+    width: 100% !important;
+    height: auto;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .web {
+    border-right: 0px;
+    border-bottom: 1px solid #444;
+  }
+}
