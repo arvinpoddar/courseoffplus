@@ -380,7 +380,7 @@
             </h1>
           </div>
           <div class="modal-body">
-            <h3>Change Schedule Builder:</h3>
+            <h3>Change Schedule Builder Website:</h3>
             <input
               type="text"
               id="url"
@@ -400,12 +400,21 @@
             >
               <button
                 type="button"
+                class="btn-primary"
+                style="margin-right: 0px;"
+                onclick="document.getElementById('url').value = 'https://gatech.courseoff.com/workspace';"
+              >
+                Default
+              </button>
+              <button
+                type="button"
                 class="btn-primary danger"
                 data-dismiss="modal"
                 onclick="urlSave(); if(!alert('Your new URL and all other changes been saved. This page will now reload.')){window.location.reload();}"
               >
                 Save
               </button>
+              <!--Reset to default button-->
               <button type="button" class="btn-primary" data-dismiss="modal">
                 Cancel
               </button>
