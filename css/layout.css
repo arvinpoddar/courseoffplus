@@ -262,7 +262,7 @@ textarea {
   border-radius: 3px;
   border: 1px solid #ccc;
   resize: vertical;
-  max-height: 600px;
+  max-height: 420px;
 }
 
 .class {
