@@ -168,6 +168,8 @@ function renderColor() {
         selection.style.backgroundColor = "#F6696E";
       } else if (value == "Still Needed") {
         selection.style.backgroundColor = "#F567D4";
+      } else if (value == "Confirmed") {
+        selection.style.backgroundColor = "#62F36F";
       } else if (value == "Waitlisted") {
         selection.style.backgroundColor = "#D4F26F";
       } else if (value == "Reference") {
@@ -186,6 +188,8 @@ function recolor(obj) {
     obj.style.backgroundColor = "#F6696E";
   } else if (value == "Still Needed") {
     obj.style.backgroundColor = "#F567D4";
+  } else if (value == "Confirmed") {
+    obj.style.backgroundColor = "#62F36F";
   } else if (value == "Waitlisted") {
     obj.style.backgroundColor = "#D4F26F";
   } else if (value == "Reference") {
