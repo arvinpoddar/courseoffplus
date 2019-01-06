@@ -177,9 +177,9 @@ function renderColor() {
       var selection = classes[i].children[3].children[0];
       //newClass is the class div wrapping all the inputs. children[3] is the div wrapping the fourth input (status). the second children[0] is the select itself
       var value = selection.value;
-      if (value == "Add") {
+      if (value == "Add?") {
         selection.style.backgroundColor = "#60F2D5";
-      } else if (value == "Drop") {
+      } else if (value == "Drop?") {
         selection.style.backgroundColor = "#F6696E";
       } else if (value == "Still Needed") {
         selection.style.backgroundColor = "#F567D4";
@@ -197,9 +197,9 @@ function renderColor() {
 function recolor(obj) {
   //changes color of select element based on new input. uses "this" passed from object during onchange event.
   var value = obj.value;
-  if (value == "Add") {
+  if (value == "Add?") {
     obj.style.backgroundColor = "#60F2D5";
-  } else if (value == "Drop") {
+  } else if (value == "Drop?") {
     obj.style.backgroundColor = "#F6696E";
   } else if (value == "Still Needed") {
     obj.style.backgroundColor = "#F567D4";

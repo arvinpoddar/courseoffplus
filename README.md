@@ -43,14 +43,14 @@ There are two ways to add a class in CourseOff Plus:
 
 ## Deleting a Class
 
-You can delete multiple classes at once. Simply delete the text inside the "Class Name" box for every class you want to delete. Then, click the "Delete Empty" button. Classes without names are considered empty.
+You can delete multiple classes at once. Simply delete the text inside the "Class Name" box for every class you want to delete. Then, click the "Delete Empty" button. Classes without names are considered empty. If you accidentally delete something, refresh the page without saving.
 
 ## About Statuses
 
 A class status indicates what needs to be done with a class, whether it's in CourseOff or not. They can be chosen from the drop down. Class statuses are also color coded. Each status has a unique meaning:
 
-- **Add:** This describes a class that may need to be added in the future.
-- **Drop:** "Drop" describes a class that may need to be dropped in the future, whether it's unecessary, conflicting with something else, or any other reason.
+- **Add?:** This describes a class that may need to be added in the future.
+- **Drop?:** "Drop" describes a class that may need to be dropped in the future, whether it's unecessary, conflicting with something else, or any other reason.
 - **Still Needed:** This is for a class that must be added to the schedule, but currently cannot be included. This could be because of timing conflicts or temporary major restrictions.
 - **Confirmed:** This is for a class that is guaranteed to be in your schedule, and won't be moving anytime soon. Great option when finalizing decisions.
 - **Waitlisted:** "Waitlisted" is to describe classes that may be on your CourseOff schedule, but are waitlisted in your actual schedule. This helps you remember that you are not currently receiving these credits.
@@ -62,7 +62,7 @@ Use the additional notes textbox to write any tips, references, or other informa
 
 ## Saving Changes
 
-To save changes made to your classes or your notes, simply click the "Save All" changes button when you're done.
+To save changes made to your classes or your notes, simply click the "Save All" changes button when you're done. This cannot be undone.
 
 ## Changing Schools/Websites
 
