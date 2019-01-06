@@ -66,7 +66,7 @@ To save changes made to your classes or your notes, simply click the "Save All" 
 
 ## Changing Schools
 
-Currently, CourseOff Plus is only live for Georgia Tech students. However, the school can be changed by downloading this repository from [Github](https://github.com/arvinpoddar/courseoffplus). Then, change the URL of the object tag on line 20 of the index.html file to the CourseOff workspace URL for your school. Then, run the website inside your localhost and you're done!
+Currently, CourseOff Plus is only live for Georgia Tech students. However, the school can be changed by downloading this repository from [Github](https://github.com/arvinpoddar/courseoffplus). Then, change the URL of the object tag on line 20 of the index.html file to the CourseOff workspace URL for your school. Then, run the website inside your localhost and you're done! If CourseOff isn't available for your school, you can use the URL for any schedule builder that your school uses!
 
 _When offline, CourseOff Plus must be run inside a server environment for cookies to work. These files cannot be moved._
 
