@@ -10,7 +10,7 @@ WEBSITE: [https://arvinpoddar.github.io/courseoffplus/](https://arvinpoddar.gith
 
 CourseOff Plus embeds the actual CourseOff website on the left side of the screen, so you can make changes to CourseOff as you work. On the right hand side, you can list classes that may be added, dropped, waitlisted, or must be included. You can also save classes as references, so you don't have to keep hunting for CRNs or section codes. Having all this information side-by-side eliminates the need to scribble down CRNs and courses while you create your schedule.
 
-Currently, CourseOff Plus is only available to Georgia Tech Students. A feature to allow other schools is coming soon. Until then, **scroll down to the "Changing Schools" section** to see how to use CourseOff Plus for other schools.
+CourseOff Plus can be used for other schools or schedule builders, even though the default is for Georgia Tech's CourseOff. To see how, **scroll down to the "Changing Schools/Websites" section**.
 
 ## How to Use
 
@@ -22,7 +22,7 @@ The following instructions are also listed in the Help dialog on the live site. 
 - About Statuses
 - Adding Notes
 - Saving Changes
-- Changing Schools
+- Changing Schools/Websites
 - Credits
 
 ## About Classes
@@ -64,9 +64,16 @@ Use the additional notes textbox to write any tips, references, or other informa
 
 To save changes made to your classes or your notes, simply click the "Save All" changes button when you're done.
 
-## Changing Schools
+## Changing Schools/Websites
 
-Currently, CourseOff Plus is only live for Georgia Tech students. However, the school can be changed by downloading this repository from [Github](https://github.com/arvinpoddar/courseoffplus). Then, change the URL of the object tag on line 20 of the index.html file to the CourseOff workspace URL for your school. Then, run the website inside your localhost and you're done! If CourseOff isn't available for your school, you can use the URL for any schedule builder that your school uses!
+In CourseOff Plus, you can embed other schedule builders, whether it's CourseOff for a different school, or a different website altogether. By default, the website is CourseOff for Georgia Tech.
+
+To use a website builder for a different school, click the "Settings" button next to the "Help" button. Copy the website URL for your preferred schedule builder, paste it into the textbox, and click the "Save" button. Click OK on the alert, and the page will reload with your new schedule builder.
+
+You may run into the following issues:
+
+- **Blank Page:** If no builder website shows up, check that the URL you entered is correct. URLs must contain http:// or https:// to work.
+- **Refused to Connect:** If you see a refused to connect error, your schedule builder cannot be embeded in CourseOff Plus.
 
 _When offline, CourseOff Plus must be run inside a server environment for cookies to work. These files cannot be moved._
 

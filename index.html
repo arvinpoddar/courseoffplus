@@ -13,15 +13,7 @@
   </head>
   <body onload="renderList();renderColor();">
     <div class="container">
-      <div class="web">
-        <!--Embeds the courseoff website inside-->
-        <object
-          class="embed"
-          type="text/html"
-          data="https://gatech.courseoff.com/workspace"
-        >
-        </object>
-      </div>
+      <div class="web" id="web"><!--Embeds the courseoff website inside--></div>
       <div class="notes">
         <div class="top">
           <h2>Classes:</h2>
@@ -46,7 +38,7 @@
           <div style="text-align: center;">
             <button
               class="btn-primary"
-              onclick="saveAll()"
+              onclick="saveAll(); alert('Your changes have been saved.');"
               style="margin-right: 0;"
             >
               Save All
@@ -58,6 +50,14 @@
               data-target="#info"
             >
               Help
+            </button>
+            <button
+              class="btn-primary"
+              style="margin-right: 0;"
+              data-toggle="modal"
+              data-target="#settings"
+            >
+              Settings
             </button>
           </div>
         </div>
@@ -145,7 +145,8 @@
               <em
                 >Best of all, you don't need an account to use CourseOff Plus.
                 All data is saved in browser cookies. When you clear your
-                browser cookies, all CourseOff Plus data will be cleared.</em
+                browser cookies, all CourseOff Plus data will be cleared. Your
+                CourseOff account will be untouched.</em
               ><br /><br />
               <strong
                 ><a href="https://github.com/arvinpoddar/courseoffplus"
@@ -162,7 +163,7 @@
               <li><strong>About Statuses</strong></li>
               <li><strong>Adding Notes</strong></li>
               <li><strong>Saving Changes</strong></li>
-              <li><strong>Changing Schools</strong></li>
+              <li><strong>Changing Schools/Websites</strong></li>
               <li><strong>Credits</strong></li>
             </ul>
             <hr />
@@ -271,30 +272,40 @@
               the "Save All" changes button when you're done.
             </p>
             <hr />
-            <h2>Changing Schools</h2>
+            <h2>Changing Schools/Websites</h2>
             <p>
-              Currently, CourseOff Plus is only live for Georgia Tech students.
-              However, the school can be changed by downloading this repository
-              from
-              <a
-                href="https://github.com/arvinpoddar/courseoffplus"
-                target="_blank"
-                >Github</a
-              >, and putting the entire folder in a local server environment.
-              Then, change the URL of the object tag on
-              <strong>line 20</strong> of the index.html file to the CourseOff
-              workspace URL for your school. Run the website inside your
-              localhost and you're done!
-              <strong
-                >If CourseOff isn't available for your school, you can use the
-                URL for any schedule builder that your school uses!</strong
-              ><br /><br />
+              In CourseOff Plus, you can embed other schedule builders, whether
+              it's CourseOff for a different school, or a different website
+              altogether. By default, the website is CourseOff for Georgia
+              Tech.<br /><br />
               <em
-                >When offline, CourseOff Plus must be run inside a server
-                environment for cookies to work. These files cannot be
-                moved.</em
+                ><strong
+                  >To use a website builder for a different school, click the
+                  "Settings" button next to the "Help" button. Copy the website
+                  URL for your preferred schedule builder, paste it into the
+                  textbox, and click the "Save" button. Click OK on the alert,
+                  and the page will reload with your new schedule builder.<br /><br />
+                  You may run into the following issues:</strong
+                ></em
               >
             </p>
+            <ul>
+              <li>
+                <strong>Blank Page:</strong> If no schedule builder website
+                shows up, check that the URL you entered is correct. URLs must
+                contain http:// or https:// to work.
+              </li>
+              <li>
+                <strong>Refused to Connect:</strong> If you see a refused to
+                connect error, your schedule builder cannot be embeded in
+                CourseOff Plus.
+              </li>
+            </ul>
+            <br />
+            <em
+              >When offline, CourseOff Plus must be run inside a server
+              environment for cookies to work. These files cannot be moved.</em
+            >
             <hr />
             <h2>Credits</h2>
             <p>CourseOff Plus uses the following content and libraries:</p>
@@ -330,6 +341,67 @@
             <button type="button" class="btn-primary" data-dismiss="modal">
               Close
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Beginning of Settings Modal-->
+    <div
+      class="modal fade "
+      id="settings"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="important-msg-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              style="margin-top: 5px;"
+            >
+              <span aria-hidden="true">&times;</span
+              ><span class="sr-only">Close</span>
+            </button>
+            <h1 class="modal-title" id="important-msg-label">
+              Settings (Beta)
+            </h1>
+          </div>
+          <div class="modal-body">
+            <h3>Change Schedule Builder:</h3>
+            <input
+              type="text"
+              id="url"
+              placeholder="https://gatech.courseoff.com/workspace"
+              value="https://gatech.courseoff.com/workspace"
+              style="text-transform: none;"
+            />
+            <h5 style="margin: 7px auto 20px auto;">
+              Enter the URL for your school's schedule building website and
+              click "Save". If the embeded site is blank, you may have a wrong
+              URL. If a "refused to connect" error appears, you cannot use that
+              schedule builder.
+            </h5>
+            <div
+              class="modal-footer"
+              style="padding-top: 3px; padding-bottom: 3px;"
+            >
+              <button
+                type="button"
+                class="btn-primary danger"
+                data-dismiss="modal"
+                onclick="urlSave(); if(!alert('Your new URL and all other changes been saved. This page will now reload.')){window.location.reload();}"
+              >
+                Save
+              </button>
+              <button type="button" class="btn-primary" data-dismiss="modal">
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       </div>

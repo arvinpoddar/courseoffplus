@@ -106,14 +106,13 @@ function saveAll() {
   if (!(notes == null || notes == "")) {
     Cookies.set("notes123", notes, { expires: 365 });
   }
-
-  alert("Your changes have been saved.");
 }
 
 function renderList() {
   //Renders list of classes on page load from cookie data.
   var notes = document.getElementById("notes");
   var savedNote = Cookies.get("notes123");
+  var savedUrl = Cookies.get("website");
 
   var content = document.getElementById("reference").innerHTML;
   var classList = document.getElementById("classList");
@@ -123,6 +122,22 @@ function renderList() {
     notes.innerText = savedNote;
     notes.style.height = notes.scrollHeight; //changes textarea height so all content is present
   }
+
+  var webContainer = document.getElementById("web");
+  var website = document.getElementById("embed");
+  var settings = document.getElementById("url");
+  var builder = "https://gatech.courseoff.com/workspace"; //default value
+  if (savedUrl) {
+    //checks if website cookie exists. if yes, changes url for embed object
+    var builder = savedUrl;
+    settings.value = savedUrl;
+  }
+  var website = document.createElement("object"); //creates embed object containing website url
+  website.setAttribute("id", "embed");
+  website.setAttribute("class", "embed");
+  website.setAttribute("type", "text/html");
+  website.data = builder;
+  webContainer.appendChild(website); //inserts object into page
 
   //converts JSON to javascript object
   var savedClasses = Cookies.getJSON();
@@ -194,5 +209,15 @@ function recolor(obj) {
     obj.style.backgroundColor = "#D4F26F";
   } else if (value == "Reference") {
     obj.style.backgroundColor = "#F59D6E";
+  }
+}
+
+function urlSave() {
+  saveAll(); //saves all changes first
+  var url = document.getElementById("url").value.trim(); //gets new URL from textbox
+  if (!(url == null || url == "")) {
+    Cookies.set("website", url, { expires: 365 }); //creates website cookie
+  } else {
+    Cookies.remove("website");
   }
 }
