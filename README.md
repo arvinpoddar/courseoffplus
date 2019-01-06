@@ -6,6 +6,8 @@ Your data is saved locally to cookies, **meaning that no sign up or registration
 
 WEBSITE: [https://arvinpoddar.github.io/courseoffplus/](https://arvinpoddar.github.io/courseoffplus/)
 
+CourseOff Plus can be used for other schools or schedule builders, even though the default is for Georgia Tech's CourseOff. To see how, **scroll down to the "Changing Schools/Websites" section**.
+
 # Features
 
 CourseOff Plus embeds the actual CourseOff website on the left side of the screen, so you can make changes to CourseOff as you work. On the right hand side, you can list classes that may be added, dropped, waitlisted, or must be included. You can also save classes as references, so you don't have to keep hunting for CRNs or section codes. Having all this information side-by-side eliminates the need to scribble down CRNs and courses while you create your schedule.
